@@ -23,23 +23,23 @@ function D(cons, opts) {
   var self = this
   if (!opts) opts = {}
 
-  if (opts.weak !== false && !opts.proto) {
-    if (!weak) {
-      // weak = require("weak")
-    }
+  // if (opts.weak !== false && !opts.proto) {
+  //   if (!weak) {
+  //     weak = require("weak")
+  //   }
 
-    opts.proto = {}
-    opts.proto.wrap = function (cb, id) {
-      var proto = this
-      return weak(cb, function () {
-        proto.cull(id)
-      })
-    }
-    opts.proto.unwrap = function (ref, id) {
-      var cb = weak.get(ref)
-      return cb || function () {}
-    }
-  }
+  //   opts.proto = {}
+  //   opts.proto.wrap = function (cb, id) {
+  //     var proto = this
+  //     return weak(cb, function () {
+  //       proto.cull(id)
+  //     })
+  //   }
+  //   opts.proto.unwrap = function (ref, id) {
+  //     var cb = weak.get(ref)
+  //     return cb || function () {}
+  //   }
+  // }
   return dnode.call(self, cons, opts)
 }
 
